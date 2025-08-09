@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+/* geral */
+:root{
+    --cor1: #181F1C;
+    --cor2: #75704E;
+    --cor3: #8BA6A9;
+}
+
+*{
+    margin: 0;
+}
+
+/* fim geral */
+
+/* Titulo */
+header{
+    background-color: var(--cor3);
+    text-align: center;
+    padding: 10px 10px 5px 10px;
+}
+
+header p {
+    font-size: 1.1em;
+}
+
+nav{
+    text-align: left;
+    margin: 10px 0px 0px 10px;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+nav a:hover{
+    color: blue;
+    text-shadow: 1px 0.5px 2px rgba(0, 0, 0, 0.421);
+}
+
+/* Fim Titulo */
+
+/* Footer */
+footer{
+    background-color: black;
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+    width: 100%;
+    padding: 8px;
+}
