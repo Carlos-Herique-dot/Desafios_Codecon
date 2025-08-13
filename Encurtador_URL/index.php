@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <?php 
+        $urlLong = trim($_POST['inpURL'] ?? "");
+
+        if (filter_var($urlLong, FILTER_VALIDATE_URL)) {
+            require_once "conexao.php";
+            $inserir = "INSERT INTO urlLong (urlLonga) VALUES (?)";
+            $stmt = $pdo->prepare($inserir);
+
+            $stmt->bindParam(1, $urlLong);
+
+            $stmt->execute();
+            $pdo = null;
+        }
+       
+    ?>
     <header>
         <div id="titulo">
             <h1>Encurt URL</h1>
@@ -18,11 +33,18 @@
         </nav>
     </header>
     <main>
-
+        <div id="idForm">
+            <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+                <label for="inpURL">Insira aqui a URL para encurtar</label>
+                <input type="url" name="inpURL" id="inpURL" required placeholder="https://example.com">
+                <input type="submit" value="Encurtar">
+                <label for="inpEncurtada">Aqui está seu URL curta e pronta para uso</label>
+                <input type="url" name="inpEncurtada" id="inpEncurtada" placeholder="URL Encurtada" readonly>
+            </form>
+        </div>
     </main>
     <footer>
         <p>Desenvolvido por carlos.herique.dot</p>
     </footer>
-    
 </body>
 </html>
